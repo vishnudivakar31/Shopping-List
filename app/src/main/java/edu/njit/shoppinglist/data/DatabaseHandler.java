@@ -30,7 +30,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + "("
-                + KEY_ITEM_ID + " LONG PRIMARY KEY,"
+                + KEY_ITEM_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + KEY_ITEM_NAME + " TEXT,"
                 + KEY_ITEM_COLOR + " TEXT,"
                 + KEY_ITEM_QTY + " INTEGER,"
@@ -70,8 +70,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 new String[] {String.valueOf(id)}, null, null, null, null
         );
 
-        if(cursor != null) {
-            cursor.moveToFirst();
+        if(cursor != null & cursor.moveToFirst()) {
             item = createItemUsingCursor(cursor);
         }
         return item;
@@ -93,8 +92,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 KEY_ITEM_DATE_ITEM_ADDED + " DESC"
         );
 
-        if(cursor != null) {
-            cursor.moveToFirst();
+        if(cursor != null && cursor.moveToFirst()) {
             do {
                 ShoppingItem item = createItemUsingCursor(cursor);
                 shoppingItems.add(item);
@@ -127,10 +125,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     private ShoppingItem createItemUsingCursor(Cursor cursor) {
         ShoppingItem item = new ShoppingItem();
-        item.setId(cursor.getLong(cursor.getColumnIndex(KEY_ITEM_ID)));
+        item.setId(cursor.getInt(cursor.getColumnIndex(KEY_ITEM_ID)));
         item.setName(cursor.getString(cursor.getColumnIndex(KEY_ITEM_NAME)));
         item.setQty(cursor.getInt(cursor.getColumnIndex(KEY_ITEM_QTY)));
         item.setSize(cursor.getInt(cursor.getColumnIndex(KEY_ITEM_SIZE)));
+        item.setColor(cursor.getString(cursor.getColumnIndex(KEY_ITEM_COLOR)));
 
         DateFormat dateFormat = DateFormat.getDateInstance();
         String formattedDate = dateFormat.format(new Date(cursor.getLong(cursor.getColumnIndex(KEY_ITEM_DATE_ITEM_ADDED))).getTime());

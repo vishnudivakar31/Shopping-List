@@ -1,7 +1,7 @@
 package edu.njit.shoppinglist.model;
 
 public class ShoppingItem {
-    private long id;
+    private Integer id;
     private String name;
     private Integer qty;
     private String color;
@@ -11,7 +11,7 @@ public class ShoppingItem {
     public ShoppingItem() {
     }
 
-    public ShoppingItem(long id, String name, Integer qty, String color, Integer size, String dateItemAdded) {
+    public ShoppingItem(Integer id, String name, Integer qty, String color, Integer size, String dateItemAdded) {
         this.id = id;
         this.name = name;
         this.qty = qty;
@@ -28,11 +28,18 @@ public class ShoppingItem {
         this.dateItemAdded = dateItemAdded;
     }
 
-    public long getId() {
+    public ShoppingItem(String name, Integer qty, String color, Integer size) {
+        this.name = name;
+        this.qty = qty;
+        this.color = color;
+        this.size = size;
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
