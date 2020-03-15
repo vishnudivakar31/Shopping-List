@@ -8,4 +8,8 @@
     <string name="hint_color">Color</string>
     <string name="hint_size">Size</string>
     <string name="save_button">Save</string>
+    <string name="sure_text">Are you sure?</string>
+    <string name="no_txt">No</string>
+    <string name="yes_txt">yes</string>
+    <string name="update">Update</string>
 </resources>

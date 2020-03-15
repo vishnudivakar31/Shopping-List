@@ -108,9 +108,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 new String[] {String.valueOf(item.getId())});
     }
 
-    public void deleteItem(ShoppingItem item) {
+    public void deleteItem(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_NAME, KEY_ITEM_ID + "=?", new String[] {String.valueOf(item.getId())});
+        db.delete(TABLE_NAME, KEY_ITEM_ID + "=?", new String[] {String.valueOf(id)});
         db.close();
     }
 
