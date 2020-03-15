@@ -6,23 +6,26 @@ public class ShoppingItem {
     private Integer qty;
     private String color;
     private Integer size;
+    private String dateItemAdded;
 
     public ShoppingItem() {
     }
 
-    public ShoppingItem(long id, String name, Integer qty, String color, Integer size) {
+    public ShoppingItem(long id, String name, Integer qty, String color, Integer size, String dateItemAdded) {
         this.id = id;
         this.name = name;
         this.qty = qty;
         this.color = color;
         this.size = size;
+        this.dateItemAdded = dateItemAdded;
     }
 
-    public ShoppingItem(String name, Integer qty, String color, Integer size) {
+    public ShoppingItem(String name, Integer qty, String color, Integer size, String dateItemAdded) {
         this.name = name;
         this.qty = qty;
         this.color = color;
         this.size = size;
+        this.dateItemAdded = dateItemAdded;
     }
 
     public long getId() {
@@ -65,6 +68,14 @@ public class ShoppingItem {
         this.size = size;
     }
 
+    public String getDateItemAdded() {
+        return dateItemAdded;
+    }
+
+    public void setDateItemAdded(String dateItemAdded) {
+        this.dateItemAdded = dateItemAdded;
+    }
+
     @Override
     public String toString() {
         return "ShoppingItem{" +
@@ -73,6 +84,7 @@ public class ShoppingItem {
                 ", qty=" + qty +
                 ", color='" + color + '\'' +
                 ", size=" + size +
+                ", dateItemAdded='" + dateItemAdded + '\'' +
                 '}';
     }
 }

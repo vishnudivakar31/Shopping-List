@@ -29,6 +29,14 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        saveBtn = findViewById(R.id.saveButton);
+        saveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                saveItem();
+            }
+        });
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,6 +58,11 @@ public class MainActivity extends AppCompatActivity {
         builder.setView(view);
         dialog = builder.create();
         dialog.show();
+    }
+
+    private void saveItem() {
+        // TODO: Save each shopping item to DB.
+        // TODO: Move to next screen - details screen
     }
 
     @Override
